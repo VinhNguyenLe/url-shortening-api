@@ -1,0 +1,85 @@
+@mixin flexBox($f: row, $j: flex-start, $a: center, $g: none) {
+  display: flex;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin circle($w, $bg, $b: none) {
+  border-radius: 50%;
+  width: $w;
+  height: $w;
+  background-color: $bg;
+  border: $b;
+}
+
+@mixin centerAbs($isScale: false) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @if $isScale {
+    transform: translate(-50%, -50%) scale(1);
+  } @else {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin handleOverflowText($line, $overflow: true) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  text-overflow: ellipsis;
+  white-space: normal;
+  @if $overflow {
+    overflow: hidden;
+  }
+}
+
+@mixin maxDevice1365 {
+  @media screen and (max-width: 1365px) {
+    @content;
+  }
+}
+
+@mixin maxDevice1248 {
+  @media screen and (max-width: 1248px) {
+    @content;
+  }
+}
+
+@mixin maxDevice986 {
+  @media screen and (max-width: 986px) {
+    @content;
+  }
+}
+
+@mixin mobile500 {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mobile345 {
+  @media screen and (max-width: 345px) {
+    @content;
+  }
+}
+
+@mixin customDevice($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin maxDevice($max) {
+  @media screen and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin minDevice($min) {
+  @media screen and (min-width: $min) {
+    @content;
+  }
+}
